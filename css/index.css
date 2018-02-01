@@ -1,0 +1,39 @@
+body{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+/*loading*/
+#loading{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    overflow: hidden;
+}
+#loading .loading{
+    display: block;
+    margin: 500px auto 0;
+    width: 100%;
+    text-align: center;
+}
+
+#loading .word{
+    display: block;
+    margin: 0 auto;
+}
+
+#canvas{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: none;
+}
+#canvas canvas{
+    /*canvas间隙问题*/
+    vertical-align: middle;
+}

@@ -5,17 +5,19 @@
     <title>n3D效果观赏</title>
     <meta name="author" content="dong">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<div id="loading"></div>
-<canvas id="canvas"></canvas>
+<div id="loading">
+    <span class="loading" id="progress">0%</span>
+    <img class="word" src="images/loading.png" alt="loading">
+</div>
+<div id="canvas"></div>
 <script src="lib/three.8.2.min.js"></script>
 <script src="lib/RequestAnimationFrame.js"></script>
 <script src="lib/Detector.js"></script>
-<script src="lib/loading.js"></script>
 <script src="js/app.js"></script>
-<script>
-
-</script>
+<script src="js/loading.js"></script>
 </body>
 </html>
