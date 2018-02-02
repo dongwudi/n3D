@@ -69,6 +69,7 @@ function init() {
     controls.maxPolarAngle = Math.PI * 3 / 5;
     controls.minPolarAngle = Math.PI / 3;
     controls.enablePan = !1;
+    controls.target.set(0, 0, 0);
     // controls.update();
     // controls.addEventListener('change', updateControls);
     // function updateControls() {
@@ -241,12 +242,17 @@ function init() {
             // console.log(vector.y * factor);
             // console.log(vector.z * factor);
 
-            new TWEEN.Tween(camera.rotation).to({
+            var t1 = new TWEEN.Tween(camera.rotation).to({
                 x: -0.037,
                 y: 0.57,
                 z: 0.02
-            }, 500).onComplete(function () {
-                console.log(controls.target);
+            }, 800);
+
+            var t2 = new TWEEN.Tween(camera).to({
+                fov: 50
+            }, 500).onUpdate(function () {
+                camera.updateProjectionMatrix();
+            }).onComplete(function () {
                 // // 纹理
                 textureLoader.load('./images/sc2.jpg', function (texture) {
                     scene2 = new THREE.MeshBasicMaterial({
@@ -254,9 +260,14 @@ function init() {
                         side: THREE.DoubleSide
                     });
                     mesh.material = scene2;
+                    camera.fov = 60;
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
                     gif_mesh.visible = false;
                 });
-            }).start()
+            });
+
+            t1.chain(t2).start();// 开启移动镜头，拉近镜头动画
         }
     }
 
