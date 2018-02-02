@@ -69,6 +69,7 @@ var loading  = new resLoader({
    },
     onProgress:function (currentIndex,total) {
         console.log('currentIndex--' + currentIndex + 'total---' + total);
+        console.log(Math.ceil((currentIndex / total) * 100) + '%');
         document.getElementById('progress').innerHTML = Math.ceil(( currentIndex / total) * 100 )+ '%';
     },
     onComplete:function (total) {
