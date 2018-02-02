@@ -63,7 +63,7 @@
 
 // 传入图片
 var loading  = new resLoader({
-   resources:['loading.png','sc1.jpg','sc2.jpg'],
+   resources:['loading.png','sc1.jpg','sc2.jpg','flower-1_0596c0f.png','flower-4_f9371e9.png','flower-3_a7fa5f2.png','flower-6_a90e383.png','flower-9_1332f27.png'],
    onStart : function () {
        console.log('onStart');
    },
