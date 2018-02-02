@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="85ce0cd2-43d1-4acb-aba5-344381d2ecb6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
+      <change beforePath="$PROJECT_DIR$/js/loading.js" afterPath="$PROJECT_DIR$/js/loading.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,8 +28,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            <state relative-caret-position="400">
+              <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -36,8 +38,20 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="118" column="4" lean-forward="true" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
+            <state relative-caret-position="550">
+              <caret line="180" column="8" lean-forward="true" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="39" />
+              <folding>
+                <element signature="n#!!block;n#canvasGif#0;n#!!block;n#init#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loading.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/loading.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="67" column="30" lean-forward="false" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -57,6 +71,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>http://static.sdg-china.com/jijiamobile/pic/3dweb</find>
+      <find>loopCount</find>
     </findStrings>
     <replaceStrings>
       <replace>../images</replace>
@@ -70,9 +85,9 @@
       <list>
         <option value="$PROJECT_DIR$/css/base.css" />
         <option value="$PROJECT_DIR$/lib/loading.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/js/loading.js" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
       </list>
     </option>
@@ -83,10 +98,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="11" />
-    <option name="y" value="12" />
-    <option name="width" value="1932" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -144,7 +159,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../threejs" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -184,15 +199,15 @@
       <option name="presentableId" value="Default" />
       <updated>1517464943398</updated>
       <workItem from="1517464982130" duration="21476000" />
-      <workItem from="1517536618025" duration="5205000" />
+      <workItem from="1517536618025" duration="13364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26681000" />
+    <option name="totallyTimeSpent" value="34840000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17966281" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -246,7 +261,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1375">
           <caret line="55" column="24" lean-forward="true" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-          <folding />
+          <folding>
+            <element signature="n#!!block;n#canvasGif#0;n#!!block;n#init#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -283,13 +300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/loading.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="46" column="28" lean-forward="false" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -299,24 +309,34 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/loading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="67" column="30" lean-forward="false" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state relative-caret-position="400">
+          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="118" column="4" lean-forward="true" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="550">
+          <caret line="180" column="8" lean-forward="true" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="39" />
+          <folding>
+            <element signature="n#!!block;n#canvasGif#0;n#!!block;n#init#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

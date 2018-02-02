@@ -2,13 +2,13 @@ function init() {
     // webgl兼容检测
     if (!Detector.webgl) return Detector.addGetWebGLMessage(), alert('不支持webgl'), !1;
 
-    function Rand(min,max) {
-        return Math.floor(Math.random() * (max - min + 1 )) + min;
+    function Rand(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     //支持开始脚本：
     var scene, camera, renderer, cameraTarget, raycaster, mesh, geometry, scene1_material, scene2_material,
-        textureLoader, scene1, scene2, light, controls;
+        textureLoader, scene1, scene2, light, controls, clock ;
 
 
     // 定义 scene renderer camera light
@@ -27,7 +27,7 @@ function init() {
         antialias: !0,//是否开启反锯齿
         precision: "highp",//着色精度选择  highp/mediump/lowp
         alpha: !0,//是否可以设置背景色透明
-        preserveDrawingBuffer: !1//是否保存绘图缓冲
+        // preserveDrawingBuffer: !1//是否保存绘图缓冲
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -41,6 +41,8 @@ function init() {
     //  射线
     raycaster = new THREE.Raycaster;
 
+    // clock
+    clock = new THREE.Clock();
 
     // 场景一加载
 
@@ -80,15 +82,16 @@ function init() {
         "./images/flower-9_1332f27.png",
         "./images/flower-1_0596c0f.png"];
     var spriteArray = [];
-    for(var i = -20; 20 > i; i += 0.3){
-        var map = textureLoader.load(spriteConfig[Math.floor(Math.random()* 10 )]);
+    for (var i = -20; 20 > i; i += 0.3) {
+        var map = textureLoader.load(spriteConfig[Math.floor(Math.random() * 10)]);
         var material = new THREE.SpriteMaterial({
             transparent: !0,
-            opacity: Rand(0.6,1),
+            opacity: Rand(0.6, 1),
+            needsUpdate: !0,
             map: map
         });
         var sprite = new THREE.Sprite(material);
-        sprite.name =  'particle';
+        sprite.name = 'particle';
         sprite.position.x = 100 * Math.random() - 50;
         sprite.position.y = 10 * Math.random();
         sprite.position.z = i;
@@ -98,35 +101,92 @@ function init() {
     }
     var spriteAnim = function () {
         for (var j = 0; j < spriteArray.length; j++) {
-            var s = spriteArray[j];
-            s.position.y -= j / spriteArray.length / 20;
-            s.position.x -= j / spriteArray.length / 40;
-            s.rotation.x -= 10;
-            s.rotation.y += 10;
-            s.rotation.z += 5;
-            s.position.y < -7 && (s.position.x = 100 * Math.random() - 50 , s.position.y = 7);
+            var that = spriteArray[j];
+            that.position.y -= j / spriteArray.length / 20;
+            that.position.x -= j / spriteArray.length / 40;
+            that.rotation.x -= 10;
+            that.rotation.y += 10;
+            that.rotation.z += 5;
+            that.position.y < -7 && (that.position.x = 100 * Math.random() - 50 , that.position.y = 7);
         }
     };
-    function spriteAnimRender() {
-        spriteAnim();
-        renderer.clear();
-        renderer.render(scene, camera);
-        requestAnimationFrame(spriteAnimRender)
-    }
+
     // -------------------------------------------------------------------------------------------
+    // 传送阵做场景跳转----------------------------------------------------------------------------
+    function canvasGif() {
+        return {
+            canvas: null,
+            context: null,
+            fps: 30,
+            loopCount: 1,
+            tempCount: 0,
+            img_obj: {source: null, current: 0, total_frames: 0, width: 0, height: 0},
+            // ele : $(".peoplecvs")[0]  --> canvas
+            // url : src 图片地址
+            // frames : 多少帧一次循环，即多少张缩略小图
+            // fps : 24  fps
+            // i : -1  循环次数
+            // a : fn() // 后续扩展函数
+            init: function (ele, url, frames, fps, i, fn) {
+                var canvas_gif = this;
+                canvas_gif.canvas = ele;
+                canvas_gif.context = ele.getContext('2d');
+                canvas_gif.fps = fps || 30;
+                canvas_gif.loopCount = i || 1; //
+                var img = new Image;
+                img.src = url;
+                // canvas_gif  -- this
+                img.onload = function () {
+                    canvas_gif.img_obj.source = img;
+                    canvas_gif.img_obj.total_frames = frames;
+                    canvas_gif.img_obj.width = this.width / frames;
+                    canvas_gif.img_obj.height = this.height;
+                    canvas_gif.loopDraw(fn);
+                };
+            },
+            draw_anim: function (ctx, img_obj) {
+                null != img_obj.source && (ctx.drawImage(img_obj.source, img_obj.width * img_obj.current , 0,  img_obj.width, img_obj.height, 0, 0, img_obj.width, img_obj.height), img_obj.current = (img_obj.current + 1) % img_obj.total_frames, -1 != this.loopCount && img_obj.current == img_obj.total_frames - 1 && this.tempCount++)
+            },
+            render: function (ele, url, frames, fps, i, fn) {
+                this.init(ele, url, frames, fps, i, fn)
+            },
+            loopDraw: function (fn) {
+                var that = this, ctx = that.context, img_obj = that.img_obj, width = that.canvas.width, height = that.canvas.height;
+                console.log(width, height);
+                var timer = setInterval(function () {
+                    ctx.clearRect(0, 0, width, height);
+                    that.draw_anim(ctx, img_obj);
+                    -1 != that.loopCount && that.tempCount == that.loopCount && (that.tempCount = 0, clearInterval(timer) , ctx.clearRect(0, 0, width, height), "function" == typeof fn && fn())
+                }, 1e3 / this.fps)
+            }
+        }
+    }
 
-    // 传送阵做场景跳转-----------------------------------------------------------------------------------
-    
+    var gif_texture = new THREE.CanvasTexture(document.getElementById('gif'));
+    canvasGif().render(document.getElementById('gif'), "./images/gogif.png", 16, 24, -1, function () {});
+    var  gif_material = new THREE.SpriteMaterial({map:gif_texture,needsUpdate: !0, side: THREE.FrontSide});
+    // gif_material.map.magFilter = THREE.NearestFilter, gif_material.map.minFilter = THREE.NearestFilter;
+    var  gif_mesh = new THREE.Sprite(gif_material);
+    gif_mesh.scale.set(50,50,50);
+    gif_mesh.position.set(-150,0,-230);
+    scene.add(gif_mesh);
 
 
 
+    // -------------------------------------------------------------------------------------------
     function animate() {
+        var delta = clock.getDelta();
+
+        // update material
+        gif_texture.needsUpdate = true; // 必须在这里设置为true, 这样传送阵才能更新
+
+        // controls.update();
         renderer.render(scene, camera);
-        controls.update();
+        spriteAnim();//粒子动画
         requestAnimationFrame(animate);
     }
+
     animate();//场景渲染
-    spriteAnimRender();//粒子渲染
 
     // resize
     window.addEventListener('resize', onWindowResize, false);
