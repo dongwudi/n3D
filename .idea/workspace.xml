@@ -26,9 +26,11 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-              <folding />
+            <state relative-caret-position="400">
+              <caret line="16" column="63" lean-forward="false" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+              <folding>
+                <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -36,8 +38,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="216" column="12" lean-forward="true" selection-start-line="216" selection-start-column="12" selection-end-line="216" selection-end-column="12" />
+            <state relative-caret-position="257">
+              <caret line="247" column="44" lean-forward="false" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
               <folding>
                 <element signature="n#!!block;n#canvasGif#0;n#!!block;n#init#0" expanded="false" />
               </folding>
@@ -48,7 +50,7 @@
       <file leaf-file-name="loading.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/loading.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
+            <state relative-caret-position="489">
               <caret line="67" column="30" lean-forward="false" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
               <folding />
             </state>
@@ -70,6 +72,7 @@
     <findStrings>
       <find>http://static.sdg-china.com/jijiamobile/pic/3dweb</find>
       <find>loopCount</find>
+      <find>log</find>
     </findStrings>
     <replaceStrings>
       <replace>../images</replace>
@@ -197,12 +200,12 @@
       <option name="presentableId" value="Default" />
       <updated>1517464943398</updated>
       <workItem from="1517464982130" duration="21476000" />
-      <workItem from="1517536618025" duration="16616000" />
+      <workItem from="1517536618025" duration="21573000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38092000" />
+    <option name="totallyTimeSpent" value="43049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -243,7 +246,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -312,14 +317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/loading.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="67" column="30" lean-forward="false" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/jquery-1.11.3.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -330,16 +327,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="400">
+          <caret line="16" column="63" lean-forward="false" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#canvas#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/loading.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="67" column="30" lean-forward="false" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="216" column="12" lean-forward="true" selection-start-line="216" selection-start-column="12" selection-end-line="216" selection-end-column="12" />
+        <state relative-caret-position="257">
+          <caret line="247" column="44" lean-forward="false" selection-start-line="247" selection-start-column="44" selection-end-line="247" selection-end-column="44" />
           <folding>
             <element signature="n#!!block;n#canvasGif#0;n#!!block;n#init#0" expanded="false" />
           </folding>

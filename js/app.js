@@ -70,7 +70,10 @@ function init() {
     controls.minPolarAngle = Math.PI / 3;
     controls.enablePan = !1;
     // controls.update();
-    // controls.addEventListener('change', animate);
+    // controls.addEventListener('change', updateControls);
+    // function updateControls() {
+    //     controls.update();
+    // }
 
 
     // 粒子-------------------------------------------------------------------------------
@@ -156,7 +159,6 @@ function init() {
             loopDraw: function (fn) {
                 var that = this, ctx = that.context, img_obj = that.img_obj, width = that.canvas.width,
                     height = that.canvas.height;
-                console.log(width, height);
                 var timer = setInterval(function () {
                     ctx.clearRect(0, 0, width, height);
                     that.draw_anim(ctx, img_obj);
@@ -201,7 +203,7 @@ function init() {
         var intersects = raycaster.intersectObjects(scene.children);//相交的物体  scene.children
         if (0 != intersects.length && intersects.length > 0) {
             var cur = intersects[0].object;
-            cur.name === 'gif' ? changeScene(1): '';
+            cur.name === 'gif' ? changeScene(1, e) : '';
         }
     }
 
@@ -210,20 +212,51 @@ function init() {
 
     // -------------------------------------------------------------------------------------------
     // 切换到第二个场景---------------------------------------------------------------------------
-    function changeScene(go) {
-        if( go ){
-            alert('进入下一个场景！');
+    function changeScene(go, ev) {
+        if (go) {
             // 拉近镜头
-            
-            // 纹理
-            textureLoader.load('./images/sc2.jpg',function (texture) {
-                scene2 = new THREE.MeshBasicMaterial( {
-                    map: texture,
-                    side:THREE.DoubleSide
-                } );
-                mesh.material = scene2;
-                gif_mesh.visible = false;
-            })
+            var factor = 3;
+            var WIDTH = window.innerWidth;
+            var HEIGHT = window.innerHeight;
+            //将鼠标的屏幕坐标转换为NDC坐标
+            var mX = (ev.clientX / WIDTH) * 2 - 1;
+            var mY = -(ev.clientY / HEIGHT) * 2 + 1;
+            //这里定义深度值为0.5，深度值越大，意味着精度越高
+            var vector = new THREE.Vector3(mX, mY, 0.5);
+            //将鼠标坐标转换为3D空间坐标
+            vector.unproject(camera);
+            //获得从相机指向鼠标所对应的3D空间点的射线（归一化）
+            // vector.sub(camera.position).normalize();
+            // camera.position.x += vector.x * factor;
+            // camera.position.y += vector.y * factor;
+            // camera.position.z += vector.z * factor;
+            // camera.rotation.x  = -0.037;
+            // camera.rotation.y  = 0.57;
+            // camera.rotation.z  = 0.02;
+            // camera.updateProjectionMatrix();
+            // controls.target.x += vector.x * factor;
+            // controls.target.y += vector.y * factor;
+            // controls.target.z += vector.z * factor;
+            // console.log(vector.x * factor);
+            // console.log(vector.y * factor);
+            // console.log(vector.z * factor);
+
+            new TWEEN.Tween(camera.rotation).to({
+                x: -0.037,
+                y: 0.57,
+                z: 0.02
+            }, 500).onComplete(function () {
+                console.log(controls.target);
+                // // 纹理
+                textureLoader.load('./images/sc2.jpg', function (texture) {
+                    scene2 = new THREE.MeshBasicMaterial({
+                        map: texture,
+                        side: THREE.DoubleSide
+                    });
+                    mesh.material = scene2;
+                    gif_mesh.visible = false;
+                });
+            }).start()
         }
     }
 
@@ -240,6 +273,7 @@ function init() {
         renderer.render(scene, camera);
         spriteAnim();//粒子动画
         requestAnimationFrame(animate);
+        TWEEN.update();
     }
 
     animate();//场景渲染
