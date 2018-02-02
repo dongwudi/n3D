@@ -8,7 +8,7 @@ function init() {
 
     //支持开始脚本：
     var scene, camera, renderer, cameraTarget, raycaster, mesh, geometry, scene1_material, scene2_material,
-        textureLoader, scene1, scene2, light, controls, clock ;
+        textureLoader, scene1, scene2, light, controls, clock, mouse;
 
 
     // 定义 scene renderer camera light
@@ -43,6 +43,9 @@ function init() {
 
     // clock
     clock = new THREE.Clock();
+
+    // mouse
+    mouse = new THREE.Vector2();
 
     // 场景一加载
 
@@ -145,13 +148,14 @@ function init() {
                 };
             },
             draw_anim: function (ctx, img_obj) {
-                null != img_obj.source && (ctx.drawImage(img_obj.source, img_obj.width * img_obj.current , 0,  img_obj.width, img_obj.height, 0, 0, img_obj.width, img_obj.height), img_obj.current = (img_obj.current + 1) % img_obj.total_frames, -1 != this.loopCount && img_obj.current == img_obj.total_frames - 1 && this.tempCount++)
+                null != img_obj.source && (ctx.drawImage(img_obj.source, img_obj.width * img_obj.current, 0, img_obj.width, img_obj.height, 0, 0, img_obj.width, img_obj.height), img_obj.current = (img_obj.current + 1) % img_obj.total_frames, -1 != this.loopCount && img_obj.current == img_obj.total_frames - 1 && this.tempCount++)
             },
             render: function (ele, url, frames, fps, i, fn) {
                 this.init(ele, url, frames, fps, i, fn)
             },
             loopDraw: function (fn) {
-                var that = this, ctx = that.context, img_obj = that.img_obj, width = that.canvas.width, height = that.canvas.height;
+                var that = this, ctx = that.context, img_obj = that.img_obj, width = that.canvas.width,
+                    height = that.canvas.height;
                 console.log(width, height);
                 var timer = setInterval(function () {
                     ctx.clearRect(0, 0, width, height);
@@ -163,17 +167,69 @@ function init() {
     }
 
     var gif_texture = new THREE.CanvasTexture(document.getElementById('gif'));
-    canvasGif().render(document.getElementById('gif'), "./images/gogif.png", 16, 24, -1, function () {});
-    var  gif_material = new THREE.SpriteMaterial({map:gif_texture,needsUpdate: !0, side: THREE.FrontSide});
+    canvasGif().render(document.getElementById('gif'), "./images/gogif.png", 16, 24, -1, function () {
+    });
+    var gif_material = new THREE.SpriteMaterial({map: gif_texture, needsUpdate: !0, side: THREE.FrontSide});
     // gif_material.map.magFilter = THREE.NearestFilter, gif_material.map.minFilter = THREE.NearestFilter;
-    var  gif_mesh = new THREE.Sprite(gif_material);
-    gif_mesh.scale.set(50,50,50);
-    gif_mesh.position.set(-150,0,-230);
+    var gif_mesh = new THREE.Sprite(gif_material);
+    gif_mesh.name = 'gif';
+    gif_mesh.scale.set(50, 50, 50);
+    gif_mesh.position.set(-150, 0, -230);
     scene.add(gif_mesh);
 
+    // -------------------------------------------------------------------------------------------
+
+    // 射线判断------------------------------------------------------------------------------------
+    function mouseMove(e) {
+        e.preventDefault();
+        var ele = document.getElementById('canvas');
+        mouse.x = ((e.pageX - $(ele).offset().left) / ele.offsetWidth) * 2 - 1;
+        mouse.y = -((e.pageY - $(ele).offset().top) / ele.offsetHeight) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);//相机和鼠标点连线
+        //相交点
+        //光线穿透物体
+        var intersects = raycaster.intersectObjects(scene.children);
+        if (0 != intersects.length && intersects.length > 0) {
+            var cur = intersects[0].object;
+            ele.style.cursor = cur.name === 'gif' ? 'pointer' : 'default';
+        }
+    }
+
+    function mouseClick(e) {
+        e.preventDefault();
+        raycaster.setFromCamera(mouse, camera);//相机和鼠标点连线
+        var intersects = raycaster.intersectObjects(scene.children);//相交的物体  scene.children
+        if (0 != intersects.length && intersects.length > 0) {
+            var cur = intersects[0].object;
+            cur.name === 'gif' ? changeScene(1): '';
+        }
+    }
+
+    document.addEventListener('mousemove', mouseMove, false);
+    document.addEventListener('click', mouseClick, false);
+
+    // -------------------------------------------------------------------------------------------
+    // 切换到第二个场景---------------------------------------------------------------------------
+    function changeScene(go) {
+        if( go ){
+            alert('进入下一个场景！');
+            // 拉近镜头
+            
+            // 纹理
+            textureLoader.load('./images/sc2.jpg',function (texture) {
+                scene2 = new THREE.MeshBasicMaterial( {
+                    map: texture,
+                    side:THREE.DoubleSide
+                } );
+                mesh.material = scene2;
+                gif_mesh.visible = false;
+            })
+        }
+    }
 
 
     // -------------------------------------------------------------------------------------------
+
     function animate() {
         var delta = clock.getDelta();
 

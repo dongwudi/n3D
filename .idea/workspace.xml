@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85ce0cd2-43d1-4acb-aba5-344381d2ecb6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change beforePath="$PROJECT_DIR$/js/loading.js" afterPath="$PROJECT_DIR$/js/loading.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+            <state relative-caret-position="575">
+              <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -38,8 +36,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="180" column="8" lean-forward="true" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="39" />
+            <state relative-caret-position="250">
+              <caret line="216" column="12" lean-forward="true" selection-start-line="216" selection-start-column="12" selection-end-line="216" selection-end-column="12" />
               <folding>
                 <element signature="n#!!block;n#canvasGif#0;n#!!block;n#init#0" expanded="false" />
               </folding>
@@ -159,18 +157,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../threejs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../THREE.JS" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\jlxuexi\n3D\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\jlxuexi\n3D\lib" />
       <recent name="E:\jlxuexi\n3D\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\jlxuexi\n3D\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -199,12 +197,12 @@
       <option name="presentableId" value="Default" />
       <updated>1517464943398</updated>
       <workItem from="1517464982130" duration="21476000" />
-      <workItem from="1517536618025" duration="13364000" />
+      <workItem from="1517536618025" duration="16616000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34840000" />
+    <option name="totallyTimeSpent" value="38092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -322,18 +320,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/jquery-1.11.3.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        <state relative-caret-position="575">
+          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="180" column="8" lean-forward="true" selection-start-line="180" selection-start-column="8" selection-end-line="180" selection-end-column="39" />
+        <state relative-caret-position="250">
+          <caret line="216" column="12" lean-forward="true" selection-start-line="216" selection-start-column="12" selection-end-line="216" selection-end-column="12" />
           <folding>
             <element signature="n#!!block;n#canvasGif#0;n#!!block;n#init#0" expanded="false" />
           </folding>
